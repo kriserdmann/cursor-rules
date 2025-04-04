@@ -1,234 +1,223 @@
-This comprehensive guide outlines best practices, conventions, and standards for development with modern web technologies including ReactJS, NextJS, Redux, TypeScript, JavaScript, HTML, CSS, and UI frameworks.
+This guide outlines best practices, conventions, and standards for building modern web applications using technologies such as **React.js, Next.js, TypeScript, Redux, HTML, CSS, and Tailwind CSS**, with a focus on clean architecture, performance, accessibility, and maintainability.
 
-    Development Philosophy
+* * *
 
-    - Write clean, maintainable, and scalable code
-    - Follow SOLID principles
-    - Prefer functional and declarative programming patterns over imperative
-    - Emphasize type safety and static analysis
-    - Practice component-driven development
+## 💡 Development Philosophy
 
-    Code Implementation Guidelines
+-   Write clean, maintainable, and scalable code
+-   Follow **SOLID** principles
+-   Emphasize **functional** and **declarative** programming
+-   Prioritize **type safety** and static analysis
+-   Practice **component-driven development**
+* * *
 
-    Planning Phase
+## 📐 Code Implementation Guidelines
 
-    - Begin with step-by-step planning
-    - Write detailed pseudocode before implementation
-    - Document component architecture and data flow
-    - Consider edge cases and error scenarios
+### Planning Phase
 
-    Code Style
+-   Begin with **step-by-step planning**
+-   Write **detailed pseudocode** before implementation
+-   Document **component architecture** and **data flow**
+-   Consider **edge cases** and **error scenarios**
+* * *
 
-    - Use tabs for indentation
-    - Use single quotes for strings (except to avoid escaping)
-    - Omit semicolons (unless required for disambiguation)
-    - Eliminate unused variables
-    - Add space after keywords
-    - Add space before function declaration parentheses
-    - Always use strict equality (===) instead of loose equality (==)
-    - Space infix operators
-    - Add space after commas
-    - Keep else statements on the same line as closing curly braces
-    - Use curly braces for multi-line if statements
-    - Always handle error parameters in callbacks
-    - Limit line length to 80 characters
-    - Use trailing commas in multiline object/array literals
+### Code Style
 
-    Naming Conventions
+-   Use **tabs** for indentation
+-   Use **single quotes** for strings (except when escaping is needed)
+-   **Omit semicolons** (unless required for disambiguation)
+-   Eliminate **unused variables**
+-   Add spaces:
+    -   After keywords (`if`, `for`, `while`)
+    -   Before function declaration parentheses
+    -   After commas and around infix operators
+-   Keep `else` on the **same line** as the closing curly brace
+-   Use **curly braces** for multi-line conditionals
+-   Always handle **error parameters** in callbacks
+-   Limit line length to **80 characters**
+-   Use **trailing commas** in multiline object/array literals
+* * *
 
-    General Rules
+## 🧾 Naming Conventions
 
-    - Use PascalCase for:
-      - Components
-      - Type definitions
-      - Interfaces
-    - Use kebab-case for:
-      - Directory names (e.g., components/auth-wizard)
-      - File names (e.g., user-profile.tsx)
-    - Use camelCase for:
-      - Variables
-      - Functions
-      - Methods
-      - Hooks
-      - Properties
-      - Props
-    - Use UPPERCASE for:
-      - Environment variables
-      - Constants
-      - Global configurations
+### General Rules
 
-    Specific Naming Patterns
+| Format | Use For |
+| --- | --- |
+| PascalCase | Components, Type Definitions, Interfaces |
+| kebab-case | File and directory names (e.g. `auth-wizard.tsx`) |
+| camelCase | Variables, Functions, Hooks, Props, Methods |
+| UPPERCASE | Environment variables, Global constants |
 
-    - Prefix event handlers with 'handle': handleClick, handleSubmit
-    - Prefix boolean variables with verbs: isLoading, hasError, canSubmit
-    - Prefix custom hooks with 'use': useAuth, useForm
-    - Use complete words over abbreviations except for:
-      - err (error)
-      - req (request)
-      - res (response)
-      - props (properties)
-      - ref (reference)
+### Specific Patterns
 
-    React Best Practices
+-   Event handlers: `handleClick`, `handleSubmit`
+-   Boolean values: `isLoading`, `hasError`, `canSubmit`
+-   Custom hooks: `useAuth`, `useForm`
+-   Prefer **full words** over abbreviations, with exceptions: `err`, `req`, `res`, `props`, `ref`
+* * *
 
-    Component Architecture
+## ⚛️ React Best Practices
 
-    - Use functional components with TypeScript interfaces
-    - Define components using the function keyword
-    - Extract reusable logic into custom hooks
-    - Implement proper component composition
-    - Use React.memo() strategically for performance
-    - Implement proper cleanup in useEffect hooks
+### Component Architecture
 
-    React Performance Optimization
+-   Use **functional components** with **TypeScript interfaces**
+-   Prefer `function` keyword over arrow functions for components
+-   Extract reusable logic into **custom hooks**
+-   Practice **component composition**
+-   Use `React.memo` for performance-sensitive components
+-   Always perform **cleanup** in `useEffect` hooks
 
-    - Use useCallback for memoizing callback functions
-    - Implement useMemo for expensive computations
-    - Avoid inline function definitions in JSX
-    - Implement code splitting using dynamic imports
-    - Implement proper key props in lists (avoid using index as key)
+### Performance Optimization
 
-    Next.js Best Practices
+-   Use `useCallback` to memoize callbacks
+-   Use `useMemo` for expensive computations
+-   Avoid **inline functions** in JSX
+-   Use **code splitting** via `dynamic import`
+-   Always use meaningful **key props** in lists (avoid using index)
+* * *
 
-    Core Concepts
+## 🔀 Next.js Best Practices
 
-    - Utilize App Router for routing
-    - Implement proper metadata management
-    - Use proper caching strategies
-    - Implement proper error boundaries
+### Core Concepts
 
-    Components and Features
+-   Use **App Router**
+-   Implement proper **metadata** and SEO handling
+-   Apply **caching strategies** thoughtfully
+-   Handle errors with **error boundaries**
 
-    - Use Next.js built-in components:
-      - Image component for optimized images
-      - Link component for client-side navigation
-      - Script component for external scripts
-      - Head component for metadata
-    - Implement proper loading states
-    - Use proper data fetching methods
+### Components & Features
 
-    Server Components
+-   Prefer built-in Next.js components:
+    -   `<Image>` for optimized images
+    -   `<Link>` for routing
+    -   `<Script>` for 3rd-party scripts
+    -   `<Head>` for metadata
+-   Implement proper **loading states**
+-   Use the correct **data fetching method** (server-side, static, or client)
 
-    - Default to Server Components
-    - Use URL query parameters for data fetching and server state management
-    - Use 'use client' directive only when necessary:
-      - Event listeners
-      - Browser APIs
-      - State management
-      - Client-side-only libraries
+### Server Components
 
-    TypeScript Implementation
+-   Default to **server components**
+-   Use **URL query parameters** for server state
+-   Use `'use client'` directive only when necessary:
+    -   Event listeners
+    -   State management
+    -   Browser APIs
+    -   Client-side-only libraries
+* * *
 
-    - Enable strict mode
-    - Define clear interfaces for component props, state, and Redux state structure.
-    - Use type guards to handle potential undefined or null values safely.
-    - Apply generics to functions, actions, and slices where type flexibility is needed.
-    - Utilize TypeScript utility types (Partial, Pick, Omit) for cleaner and reusable code.
-    - Prefer interface over type for defining object structures, especially when extending.
-    - Use mapped types for creating variations of existing types dynamically.
+## 🧩 TypeScript Standards
 
-    UI and Styling
+-   Enable **`strict` mode**
+-   Define **clear interfaces** for props, state, Redux slices
+-   Use **type guards** for null/undefined checks
+-   Apply **generics** where flexibility is needed
+-   Leverage **utility types**: `Partial`, `Pick`, `Omit`
+-   Prefer `interface` over `type` for extendable structures
+-   Use **mapped types** to create dynamic type variations
+* * *
 
-    Component Libraries
+## 🎨 UI & Styling Guidelines
 
-    - Use Shadcn UI for consistent, accessible component design.
-    - Integrate Radix UI primitives for customizable, accessible UI elements.
-    - Apply composition patterns to create modular, reusable components.
+### Component Libraries
 
-    Styling Guidelines
+-   Use **Shadcn UI** for consistent, accessible components
+-   Leverage **Radix UI** for low-level, accessible primitives
+-   Apply **composition patterns** for modular UI
 
-    - Use Tailwind CSS for styling
-    - Use Tailwind CSS for utility-first, maintainable styling.
-    - Design with mobile-first, responsive principles for flexibility across devices.
-    - Implement dark mode using CSS variables or Tailwind’s dark mode features.
-    - Ensure color contrast ratios meet accessibility standards for readability.
-    - Maintain consistent spacing values to establish visual harmony.
-    - Define CSS variables for theme colors and spacing to support easy theming and maintainability.
+### Styling with Tailwind CSS
 
-    State Management
+-   Use **Tailwind CSS v4** for utility-first styling
+-   Follow **mobile-first** responsive design
+-   Implement **dark mode** with Tailwind or CSS variables
+-   Ensure **color contrast** meets accessibility standards
+-   Maintain **consistent spacing** for visual rhythm
+-   Define **CSS variables** for theme support
+* * *
 
-    Local State
+## 🌐 State Management
 
-    - Use useState for component-level state
-    - Implement useReducer for complex state
-    - Use useContext for shared state
-    - Implement proper state initialization
+### Local State
 
-    Global State
+-   Use `useState` for simple state
+-   Use `useReducer` for complex state
+-   Use `useContext` for lightweight global state
 
-    - Use Redux Toolkit for global state
-    - Use createSlice to define state, reducers, and actions together.
-    - Avoid using createReducer and createAction unless necessary.
-    - Normalize state structure to avoid deeply nested data.
-    - Use selectors to encapsulate state access.
-    - Avoid large, all-encompassing slices; separate concerns by feature.
+### Global State
 
-    Error Handling and Validation
+-   Use **Redux Toolkit** as default
+-   Define slices with `createSlice`
+-   Normalize deeply nested data
+-   Use **selectors** for data access abstraction
+-   Split state into **feature-specific slices**
+* * *
 
-    Form Validation
+## 🛑 Error Handling & Validation
 
-    - Use Zod for schema validation
-    - Implement proper error messages
-    - Use proper form libraries (e.g., React Hook Form)
+### Forms
 
-    Error Boundaries
+-   Use **Zod** for schema validation
+-   Use **React Hook Form** for efficient form handling
+-   Display clear and accessible **error messages**
 
-    - Use error boundaries to catch and handle errors in React component trees gracefully.
-    - Log caught errors to an external service (e.g., Sentry) for tracking and debugging.
-    - Design user-friendly fallback UIs to display when errors occur, keeping users informed without breaking the app.
+### Runtime Errors
 
-    Testing
+-   Use **Error Boundaries** to gracefully catch UI errors
+-   Log errors to services like **Sentry**
+-   Provide helpful **fallback UIs**
+* * *
 
-    Unit Testing
+## 🧪 Testing Strategy
 
-    - Write thorough unit tests to validate individual functions and components.
-    - Use Jest and React Testing Library for reliable and efficient testing of React components.
-    - Follow patterns like Arrange-Act-Assert to ensure clarity and consistency in tests.
-    - Mock external dependencies and API calls to isolate unit tests.
+### Unit Testing
 
-    Integration Testing
+-   Use **Jest** and **React Testing Library**
+-   Follow **Arrange–Act–Assert** pattern
+-   Mock APIs and external dependencies
+-   Avoid overuse of snapshot testing
 
-    - Focus on user workflows to ensure app functionality.
-    - Set up and tear down test environments properly to maintain test independence.
-    - Use snapshot testing selectively to catch unintended UI changes without over-relying on it.
-    - Leverage testing utilities (e.g., screen in RTL) for cleaner and more readable tests.
+### Integration Testing
 
-    Accessibility (a11y)
+-   Focus on **end-user workflows**
+-   Properly set up and tear down test states
+-   Use `screen` from RTL for queries
+* * *
 
-    Core Requirements
+## ♿ Accessibility (a11y)
 
-    - Use semantic HTML for meaningful structure.
-    - Apply accurate ARIA attributes where needed.
-    - Ensure full keyboard navigation support.
-    - Manage focus order and visibility effectively.
-    - Maintain accessible color contrast ratios.
-    - Follow a logical heading hierarchy.
-    - Make all interactive elements accessible.
-    - Provide clear and accessible error feedback.
+-   Use **semantic HTML**
+-   Apply **ARIA attributes** when necessary
+-   Support **keyboard navigation**
+-   Manage **focus and tab order**
+-   Ensure **sufficient color contrast**
+-   Follow a logical **heading structure**
+-   Make **interactive elements fully accessible**
+-   Show **accessible error messages**
+* * *
 
-    Security
+## 🔐 Security Best Practices
 
-    - Implement input sanitization to prevent XSS attacks.
-    - Use DOMPurify for sanitizing HTML content.
-    - Use proper authentication methods.
+-   Sanitize user input to prevent **XSS**
+-   Use **DOMPurify** for HTML sanitation
+-   Use secure **authentication flows**
+* * *
 
-    Internationalization (i18n)
+## 🌍 Internationalization (i18n)
 
-    - Use next-i18next for translations
-    - Implement proper locale detection
-    - Use proper number and date formatting
-    - Implement proper RTL support
-    - Use proper currency formatting
+-   Use **next-i18next** for translation
+-   Implement **locale detection**
+-   Format **dates, currencies, and numbers** properly
+-   Ensure **RTL** layout support when needed
+* * *
 
-    Documentation
+## 📝 Documentation Standards
 
-    - Use JSDoc for documentation
-    - Document all public functions, classes, methods, and interfaces
-    - Add examples when appropriate
-    - Use complete sentences with proper punctuation
-    - Keep descriptions clear and concise
-    - Use proper markdown formatting
-    - Use proper code blocks
-    - Use proper links
-    - Use proper headings
-    - Use proper lists
+-   Use **JSDoc** or TypeScript annotations
+-   Document:
+    -   Public functions, methods, components, types
+    -   Use clear and complete sentences
+    -   Add usage examples where helpful
+-   Use proper Markdown:
+    -   Headings, code blocks, links, lists
+
