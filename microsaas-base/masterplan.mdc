@@ -1,0 +1,84 @@
+# 🧠 masterplan.md
+
+## 📌 Overview
+A responsive, minimalist, and modern web application that unifies multiple AI-powered tools to support UX designers in their research, planning, and validation workflows. This all-in-one platform delivers automated insights, persona generation, accessibility testing, and more — streamlining the UX process from discovery to delivery.
+
+## 🎯 Objectives
+- Centralize essential UX tools powered by AI
+- Reduce manual effort and repetitive tasks
+- Deliver actionable insights from raw research data
+- Support freelancers and teams with scalable workflows
+
+## 👥 Target Audience
+- UX/UI freelancers
+- Product teams in startups and scale-ups
+- Design and innovation agencies
+- Students and UX newcomers
+
+Initially focused on the Brazilian market (Portuguese), with plans for internationalization (English-first expansion).
+
+## 🧰 Core Features
+1. **UX Research Assistant**
+   - Upload or paste qualitative research (e.g., interviews)
+   - Automatically extract key themes, sentiments, and insights
+   - Generate practical summaries for UX application
+
+2. **Nielsen Heuristics Analyzer**
+   - Upload screenshots or paste URLs
+   - Receive usability analysis based on Nielsen's 10 heuristics
+   - Suggestions auto-generated using UX best practices
+
+3. **Persona Generator**
+   - Stakeholder answers basic prompts
+   - Platform generates detailed personas (motivations, goals, pain points)
+
+4. **Accessibility & Contrast Tester**
+   - Upload screenshots or URLs for color contrast validation
+   - Automated suggestions for improvements
+
+5. **User Story Generator**
+   - Provide a project or feature brief
+   - Generate complete user stories with edge cases and variations
+
+## 🧱 Suggested Stack
+- **Frontend**: React + TailwindCSS
+- **Backend**: Supabase (auth, database, file storage)
+- **AI Services**: OpenAI API
+- **Accessibility Check**: WebAIM API or open-source libraries
+
+## 📊 Conceptual Data Model
+- **Users**: id, name, email, role, auth method, plan (free/pro)
+- **Projects**: title, type, status, createdAt
+- **Files**: screenshots, URLs, interview data
+- **Reports**: type, AI result, related projectId, createdAt
+
+## 🖌️ UI Principles
+- Clean, minimalist design
+- White space for visual comfort
+- Accessible by design (WCAG-aligned)
+- Smooth animations and interactions
+- Mobile-first layout approach
+
+## 🔐 Security & Access
+- Authentication: email/password + OAuth (Google, GitHub)
+- Role-based access (Admin, Collaborator, Free User, Pro User)
+- Secure file storage and private project data
+
+## 🛠 Development Phases
+1. **MVP**: Core tools, basic auth, Supabase, OpenAI integration
+2. **V1**: Polish UI/UX, export options, dark mode
+3. **V2**: Multilingual interface, billing, team collaboration
+
+## ⚠️ Known Challenges
+- Prompt engineering for consistent AI results
+- Processing images for accessibility reports
+- Managing performance with multiple AI tools
+- Scaling storage and compute as usage grows
+- Preparing for multilingual support (i18n structure)
+
+## 🚀 Future Opportunities
+- CMS for educational content (tutorials, guides)
+- Slack and Notion integrations for workflows
+- Additional tools: journey maps, wireframes, competitive audits
+- Native apps for iOS and Android
+
