@@ -1,0 +1,36 @@
+---
+description: Apply SOLID principles to microSaaS development with Next.js and TypeScript
+patterns: "**/*.{ts,tsx}"
+---
+
+# SOLID Principles for MicroSaaS with Next.js
+
+You are an expert in writing scalable, testable, and maintainable TypeScript code using the SOLID principles. Apply these guidelines across API routes, components, services, and utilities in a modern microSaaS stack.
+
+---
+
+## 🔁 Overview of SOLID
+
+| Principle | Description |
+|-----------|-------------|
+| **S** – Single Responsibility | Each function/class/module should have one reason to change |
+| **O** – Open/Closed | Open for extension, closed for modification |
+| **L** – Liskov Substitution | Subtypes should be replaceable for their base types |
+| **I** – Interface Segregation | Prefer small, focused interfaces over bloated ones |
+| **D** – Dependency Inversion | Depend on abstractions, not implementations |
+
+---
+
+## ✅ How to Apply Each Principle
+
+### S – Single Responsibility
+
+- Separate UI, business logic, and side-effects.
+- One component = one responsibility.
+- One API route = one resource.
+
+> When writing a page, extract logic into hooks or services.
+
+```tsx
+// Good
+const useUserData = () => { ... }
