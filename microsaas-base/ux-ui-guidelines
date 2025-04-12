@@ -1,0 +1,99 @@
+---
+description: Guidelines for accessible, responsive, and consistent UI/UX in Tailwind-based projects
+patterns: "*.tsx"
+---
+
+# UI/UX Design Best Practices for MicroSaaS (Tailwind + Next.js + Shadcn UI)
+
+You are an expert in UI and UX design principles for SaaS products. Follow these visual and interaction design rules when creating UI code. All layout and style decisions should use **Tailwind CSS utility classes**. Use **Shadcn UI components** where available (`@/components/ui/`).
+
+---
+
+## 🎨 Visual Design
+
+- Establish clear visual hierarchy using headings (`h1` to `h4`) and spacing (`mt-*`, `mb-*`, `gap-*`).
+- Use a cohesive color palette defined in `tailwind.config.ts`.
+- Use `rem` units for font sizes and ensure readable `line-height` (e.g., `leading-relaxed`).
+- Maintain WCAG 2.1 AA contrast standards.
+- Apply consistent component spacing and alignment using Tailwind utilities.
+
+---
+
+## 🔁 Interaction Design
+
+- Always use **semantic HTML**: `<button>`, `<a>`, `<form>`, `<nav>`, `<section>`.
+- Prefer `@/components/ui/button` over `<div onClick>` for accessibility.
+- Implement intuitive navigation (`Header`, `MobileMenu`, breadcrumbs).
+- Use `hover:`, `focus:`, and `aria-` attributes for interactivity feedback.
+- Use Tailwind transitions and animations (`transition-all`, `duration-300`) sparingly and consistently.
+
+---
+
+## ♿ Accessibility
+
+- Add `aria-label`, `aria-describedby`, and `aria-hidden` as appropriate.
+- Ensure all interactive elements are focusable (`tabindex=0`) and reachable via keyboard.
+- Provide alt text (`alt=""`) for all images and meaningful labels for inputs.
+- Use `role="dialog"`, `role="alert"`, etc., where required for screen readers.
+
+---
+
+## 📱 Mobile-First Responsive Design
+
+- Design with mobile-first Tailwind breakpoints (`sm`, `md`, `lg`, `xl`).
+- Use `flex`, `grid`, `gap-*`, and `max-w-*` for layout.
+- Ensure touch targets are at least `44x44px` (`min-w-11 min-h-11`).
+- Prioritize mobile navigation patterns: hamburger menu, bottom tabs, off-canvas panels.
+- Avoid fixed pixel widths — prefer `w-full`, `max-w-*`, `px-*`.
+
+---
+
+## 🚀 Performance
+
+- Optimize all images (use Next.js `<Image>`).
+- Use `loading="lazy"` and Tailwind blur/skeleton classes while loading.
+- Avoid large JS bundles: use code splitting (`dynamic()`), lazy loading.
+- Minimize layout shifts: reserve space for elements and preload fonts.
+
+---
+
+## 📂 Information Architecture
+
+- Use clear labels and headings for each section.
+- Group related content into logical containers (e.g. cards, sections).
+- Prioritize key content at the top using `order-*` and `flex-col-reverse` as needed.
+- Maintain a consistent layout grid with `container`, `mx-auto`, `px-4`.
+
+---
+
+## 💬 Feedback & Forms
+
+- Use loading spinners, toast messages (`use-toast`), and progress bars for async actions.
+- Use inline validation (`aria-invalid`, red borders, helper text).
+- Always give the user a recovery option on errors (retry, cancel, undo).
+- Match field `name` attributes to backend model keys where applicable.
+
+---
+
+## 🧪 Testing and Iteration
+
+- Test with actual devices and browser dev tools (`cmd+shift+m`).
+- Use Lighthouse to audit performance and accessibility.
+- Support keyboard navigation, focus order, and screen reader flows.
+- Iterate using feedback from analytics, heatmaps, and usability tests.
+
+---
+
+## 📘 Documentation
+
+- Maintain a design system documented in `components.json` and `tailwind.config.ts`.
+- Use consistent component naming (e.g., `InputField`, `MobileNav`, `PrimaryButton`).
+- Include descriptions and usage examples for all reusable components.
+
+---
+
+When generating UI code, always:
+- Use Tailwind utility classes instead of inline styles.
+- Prefer components from Shadcn UI (`@/components/ui/`) before writing from scratch.
+- Ensure accessibility, responsiveness, and consistency across breakpoints.
+
