@@ -34,3 +34,60 @@ You are an expert in writing scalable, testable, and maintainable TypeScript cod
 ```tsx
 // Good
 const useUserData = () => { ... }
+
+### O – Open/Closed
+Use props and slots to extend behavior.
+
+Favor composition over conditional logic.
+
+When building components, allow for style/behavior extension via props.
+
+<Button variant="destructive">Delete</Button>
+### L – Liskov Substitution
+Sub-components must preserve the contract of base components.
+
+Avoid surprising side effects or missing props.
+
+Custom inputs should behave like <input> (support value, onChange, etc).
+
+### I – Interface Segregation
+Break large User types into small, targeted types.
+
+Use Pick<User, 'email' | 'name'> or split into UserProfile, UserAuth, etc.
+
+### D – Dependency Inversion
+Inject services (like authService, paymentService) into components/hooks.
+
+Do not call Supabase or Stripe directly inside components.
+
+const dashboard = await billingService.getDashboard(userId)
+🧱 Patterns to Follow
+🧩 Hooks for logic
+useUser(), useSubscription(), useFeatureFlags()
+
+🛠 Services for business logic
+authService.login(), billingService.subscribe(), userService.get()
+
+🌐 Abstractions for APIs
+Wrap external tools like Stripe, Supabase, Sendgrid
+
+// Do this:
+const user = await userService.get(userId)
+
+// Not this:
+const { data } = await supabase.from("users").select(...)
+
+🧪 Testing & Maintenance
+Write isolated unit tests for each function/class.
+
+Favor dependency injection to mock services in tests.
+
+Avoid deep files – split by responsibility (e.g., /lib/services, /hooks, /ui).
+
+When generating or refactoring code, always:
+
+Apply SOLID to services, utilities, and hooks.
+
+Inject dependencies where possible.
+
+Break logic into testable, focused units.
