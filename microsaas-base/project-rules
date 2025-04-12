@@ -104,6 +104,7 @@ This is a **microSaaS** built with:
 - Abstract Supabase logic into **helpers** (`userService`, `billingService`)
 - Validate user actions **both in the UI and backend**
 - Ensure generated components are **composable, reusable, and minimal**
+- Always ask for clarification if project context is missing.
 
 ---
 
