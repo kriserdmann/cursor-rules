@@ -1,0 +1,37 @@
+COMMIT & VERSIONING RULE:
+
+- Use **Conventional Commits** for all commit messages to maintain consistency and enable automated changelog generation.
+- Valid prefixes include:
+  - `feat:` — for new features
+  - `fix:` — for bug fixes
+  - `chore:` — for tooling/config updates or dependency changes
+  - `refactor:` — for internal code changes that don't alter behavior
+  - `docs:` — for documentation-only changes
+  - `test:` — for test-related updates
+  - `ci:` — for continuous integration or deployment configuration
+
+✅ Examples of proper commit messages:
+```bash
+feat: add support for dynamic QR code generation
+fix: handle login error state correctly
+docs: improve setup instructions in README
+
+Keep commits small and atomic. Avoid vague messages like update stuff or misc changes.
+
+Follow Semantic Versioning (SemVer):
+
+Format: MAJOR.MINOR.PATCH → e.g. 1.4.2
+
+Update:
+
+MAJOR when making incompatible API changes
+
+MINOR when adding functionality in a backward-compatible manner
+
+PATCH for backward-compatible bug fixes
+
+Generate a CHANGELOG.md automatically on every release based on commit messages.
+
+🛠 Recommended tool: standard-version
+
+🚫 Do NOT commit .env.local or secret keys. 🚫 Do NOT push directly to main or production branches — always open a Pull Request with code review.
