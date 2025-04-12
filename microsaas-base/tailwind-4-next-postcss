@@ -1,0 +1,28 @@
+TAILWINDCSS INTEGRATION RULE:
+
+- Always use **Tailwind CSS v4** installed as a **PostCSS plugin**, not via CLI or CDN.
+- Follow the official PostCSS installation pattern from https://tailwindcss.com/docs/installation/using-postcss.
+- Required packages:
+  - `tailwindcss`
+  - `@tailwindcss/postcss`
+  - `postcss`
+
+✅ PostCSS config (`postcss.config.mjs`) must include:
+```js
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  }
+}
+
+✅ Tailwind CSS must be imported in the global stylesheet using:
+
+@import "tailwindcss";
+
+🚫 Do not use:
+
+Tailwind CLI build
+Play CDN
+Inline styles or external CSS frameworks
+
+💡 Reasoning: This setup provides optimal integration with Next.js, enables custom configuration, and leverages zero-runtime utility generation with full flexibility and reliability.
