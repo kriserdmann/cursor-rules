@@ -1,0 +1,151 @@
+🧭 Masterplan: UX Design Assistant Platform
+🎯 Product Vision
+Build a professional, AI-enhanced UX toolkit where designers can conduct research, analyze accessibility, create personas, and generate user stories in one place — all through a modular, elegant, and future-ready interface.
+
+🎨 Design Language (Airbnb/QuintoAndar Inspired)
+Minimalist, clean interface with spacious layout and strong typographic hierarchy
+
+Neutral color palette with soft grays and UX-blue accent (customizable)
+
+Desktop-first UI, mobile responsive down to 375px
+
+Subtle shadows, elevation, and visual clarity
+
+Typography: Inter or IBM Plex Sans
+
+Icons: Lucide or Heroicons
+
+Light/dark mode toggle, WAI-ARIA structure, keyboard navigation
+
+Breakpoints: 1280px, 1024px, 768px, 375px
+
+🛠️ Tech Stack
+Layer	Technology
+Frontend	Next.js 14 (App Router)
+Styling	TailwindCSS v4 with PostCSS
+Backend	Supabase (Auth, DB, File Storage)
+AI Layer	OpenAI GPT-4 Turbo
+Accessibility	axe-core or WebAIM APIs
+Hosting	Vercel
+🧱 Architecture Principles
+Modular dashboard with 5 independent tools (workspaces)
+
+Each tool stores data per user (via Supabase schemas)
+
+Role-based architecture for multi-user/team support
+
+All AI-generated outputs are exportable (PDF, JSON, Markdown)
+
+🧰 MVP Toolset (Workspaces)
+UX Research Assistant — Analyze research data and generate summaries
+
+Nielsen Heuristics Evaluator — Screenshot/URL analysis with usability reports
+
+Persona Generator — Auto-generate detailed personas from questionnaire
+
+Accessibility Checker — Scan for contrast, WCAG, semantic structure
+
+Smart User Story Generator — Structured stories with alternate paths
+
+🔧 Implementation Plan
+📦 Week 1: Project Setup
+ Initialize project with Next.js 14, Tailwind v4, PostCSS
+
+ Set up layout: app/layout.tsx, light/dark toggle, ARIA structure
+
+ Directory structure:
+
+bash
+Copiar
+Editar
+/app
+/tools
+/components
+/lib
+/hooks
+/styles
+ Set up Supabase project (users, projects, tools, storage)
+
+ Create auth flow (sign-up, login, session hook)
+
+🔐 Week 2: Auth + Modular Layout
+ Implement Supabase Auth (email/password)
+
+ Add useAuth() hook for session handling
+
+ Create <ToolLayout> for per-tool pages
+
+ Route structure: /tools/[slug]/page.tsx
+
+🤖 Week 3: OpenAI Integration + Research Assistant
+ Build OpenAI client abstraction (lib/openai.ts)
+
+ Implement Tool 1: UX Research Assistant
+
+Upload/copy research input
+
+Extract themes, sentiments
+
+Generate Markdown + PDF summary report
+
+ Store results per user/project
+
+🧠 Week 4: Heuristics + Personas
+ Tool 2: Nielsen Heuristics Evaluator
+
+Screenshot/URL input
+
+AI evaluates per heuristic
+
+Report with severity, suggestions
+
+ Tool 3: Persona Generator
+
+Input: short survey form
+
+AI output: persona card
+
+Export to JSON/PDF
+
+♿ Week 5: Accessibility + User Stories
+ Tool 4: Accessibility Checker
+
+Integrate axe-core
+
+Scan screenshots or URLs
+
+Generate issues + AI-based fixes
+
+ Tool 5: User Story Generator
+
+Input: brief and features
+
+Output: structured stories, alt flows
+
+Export: Jira/Markdown
+
+🧪 Week 6: Final Polish & QA
+ Visual refinement: Airbnb/QuintoAndar style (white space, font sizing)
+
+ Dark/light theme toggle with Tailwind classes
+
+ Accessibility test (screen readers, keyboard nav)
+
+ Device testing (mobile-first → up to 1280px)
+
+ Export integration for each tool (PDF, Markdown, JSON)
+
+ Final deploy to Vercel
+
+✅ MVP Deliverables Checklist
+ Modular Next.js 14 dashboard
+
+ Supabase backend with per-user data isolation
+
+ 5 fully functional AI-assisted UX tools
+
+ PDF/Markdown/JSON export in each module
+
+ Fully responsive, accessible UI with dark/light theme
+
+ Scalable architecture for Pro features (teams, tagging, realtime)
