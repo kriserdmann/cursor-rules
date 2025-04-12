@@ -1,0 +1,33 @@
+# 🎨 design-guidelines.md
+
+## ✨ Visual Style
+- **Inspiration:** Airbnb, QuintoAndar
+- **Aesthetic:** Minimalist, modern, and accessible
+- **Colors:** Neutral palette with soft accent highlights (e.g., blue, purple, or green)
+- **Typography:** Modern sans-serif (e.g., Inter, Poppins, or Urbanist)
+- **Whitespace:** Generous spacing to emphasize content
+- **UI Elements:** Rounded corners, soft shadows, subtle transitions
+
+## 📱 Layout and Components
+- **Responsiveness:** Mobile-first, adapting well to tablets and desktops
+- **Navigation:** Collapsible sidebar on desktop, top menu or drawer on mobile
+- **Cards:** Used for reports, insights, personas, and tool results
+- **Buttons:** Well-spaced with clear visual states (hover, active, disabled)
+
+## 🌐 Accessibility
+- Proper text contrast (validated by automated tools)
+- Full keyboard navigation support
+- Resizable and readable text
+- Alt text for all images and screenshots
+- Screen reader compatibility for all key UI areas
+
+## 🗣️ Brand Voice
+- **Language:** Clear, welcoming, and concise
+- **Tone:** Professional yet friendly (no unnecessary jargon)
+- **Overall Experience:** Intuitive, smooth, focused on fast results
+
+## 🧩 Additional Visual Details
+- Immediate visual feedback when using tools (e.g., loaders, checkmarks, toasts)
+- Highlighted insights in AI results (e.g., bolded key phrases)
+- Dark mode planned for V1 (neutral base + adapted accent colors)
+
