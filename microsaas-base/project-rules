@@ -1,0 +1,123 @@
+---
+description: Technical and architectural guidelines for this microSaaS using Next.js, Tailwind CSS v4, and Supabase
+patterns: "**/*.{ts,tsx,js,jsx}"
+---
+
+# 📘 Project Overview
+
+This is a **microSaaS** built with:
+
+- **Next.js 14 (App Router)**
+- **Tailwind CSS v4 (PostCSS plugin)**
+- **Supabase (Auth, Database, Storage, Realtime)**
+- **Hosted on Vercel**
+- **Minimal client-side interactivity** — Server Components are preferred
+
+---
+
+## 📦 Tech Stack & Versions
+
+- **Next.js 14** with App Router and `app/` directory
+- **Tailwind CSS v4** using the official PostCSS plugin
+- **Supabase SDK v2+**, supporting edge and server environments
+- **Deployment** via Vercel (edge-ready)
+
+---
+
+## ⚙️ Next.js Rules
+
+- ✅ Use **Server Components** by default
+- ✅ Use **Client Components** only for interactivity (e.g., forms, modals)
+- ✅ All routes must live under `app/` directory
+- ✅ API routes must go in `app/api/[endpoint]/route.ts`
+- ❌ Do NOT use `getServerSideProps`, `getStaticProps`, or `pages/` — use fetch and caching strategies from the App Router
+- ✅ Place `"use client"` **only** at the top of files that need it
+
+---
+
+## 🎨 TailwindCSS Rules
+
+- ✅ Tailwind CSS v4 must be used with PostCSS as documented: [Tailwind + PostCSS](https://tailwindcss.com/docs/installation/using-postcss)
+- ✅ Responsive design is **required** (mobile-first approach)
+- ✅ Use Tailwind's built-in variants for hover/focus/dark
+- ❌ Do NOT use inline styles — use Tailwind utility classes
+- ✅ Order classes: **Layout → Spacing → Typography → Color → State**
+
+---
+
+## 🔐 Supabase Rules
+
+- ✅ Use the **official Supabase JS SDK (`@supabase/supabase-js`)**
+- ✅ Wrap all Supabase logic in `lib/` or `hooks/` — **do NOT call `supabase.from()` directly in components**
+- ✅ Auth logic must be centralized (e.g., `useAuth()` or `authService`)
+- ✅ Store keys and URLs in `.env.local`, never hardcoded
+- ✅ Database access should be server-only when possible
+- ✅ Close realtime subscriptions on unmount to prevent memory leaks
+
+---
+
+## 🧱 Architecture & Structure
+
+```txt
+/src
+  /app
+    layout.tsx      ← Global layout
+    page.tsx        ← Home route
+    /api/           ← API Routes
+    /feature/       ← Pages and subroutes
+  /components       ← Shared UI components
+  /hooks            ← Custom React hooks
+  /lib/supabase     ← Supabase clients and services
+
+## 📝 Naming Conventions
+
+| Item       | Format      | Example                  |
+|------------|-------------|--------------------------|
+| Components | PascalCase  | `UserCard.tsx`           |
+| Variables  | camelCase   | `eventTitle`, `guestList`|
+| Files      | kebab-case  | `guest-table.tsx`        |
+| CSS/Assets | kebab-case  | `/public/icons/`         |
+
+---
+
+## 🧪 Workflow & Dev Experience
+
+- ❌ Do **NOT** add new NPM packages unless approved
+- ✅ Prioritize **fast cold-starts** for edge compatibility
+- ✅ Test **Supabase RLS policies** before deployment
+- ✅ Validate **all forms** both client-side and server-side
+- ✅ Use **atomic commits** and **semantic commit messages**:
+  - `feat:` for new features
+  - `fix:` for bug fixes
+  - `refactor:` for internal code improvements
+
+---
+
+## 🤖 AI Instruction Summary
+
+- Always **ask before introducing new libraries** (e.g., Zustand, Redux)
+- ❌ Never include `.env.local` values or hardcoded secrets
+- When editing files, **prefer diffs over full replacements** unless requested
+- Use **Shadcn UI** components if applicable (`@/components/ui`)
+- Use **Tailwind classes** for layout, spacing, and styling
+- Prefer **Server Components**; use `"use client"` only when necessary
+- Abstract Supabase logic into **helpers** (`userService`, `billingService`)
+- Validate user actions **both in the UI and backend**
+- Ensure generated components are **composable, reusable, and minimal**
+
+---
+
+## 🔐 Security & Sensitive Data
+
+- ✅ Use **environment variables** for all secret keys
+- ❌ Never expose `.env.local` contents in code or UI
+- ✅ Client auth state must be **verified server-side** before trusting
+- ✅ Access control is enforced via **Supabase RLS policies**
+
+---
+
+## 🔮 Future-Proofing
+
+- ✅ Structure code for future **TypeScript migration** (`.ts/.tsx`)
+- ✅ Abstract third-party logic (e.g., Supabase, Stripe) into `lib/` or services
+- ✅ Prefer **composable components and hooks** to prevent vendor lock-in
